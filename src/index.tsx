@@ -1,39 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './Compoments/Layout/Layout';
-
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Compoments/Layout/Layout";
+import NotFound from "./Compoments/NotFound/NotFound";
 
 const router = createBrowserRouter([
-  
   {
-    path: '/',
-    element: <Layout/>,
+    path: "/",
+    element: <Layout />,
     children: [
-      { path: '/', element: <h1>Home Page</h1> },
-      { path: '/about', element: <h1>About Page</h1> },
-      { path: '/contact', element: <h1>Contact Page</h1> },
-
-      // Add more routes here...
-
-      // This route will match if none of the above routes match
-      { path: '*', element: <h1>Page Not Found</h1> },
-    ]
+      {index:true, element: <h1>Home Page</h1> },
+      { path: "/jobs", element: <h1>Home Page</h1> },
+      { path: "/about", element: <h1>About Page</h1> },
+      { path: "/contact", element: <h1>Contact Page</h1> },
+      { path: "*", element:<NotFound/> },
+    ],
   },
-
-])
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+root.render(<RouterProvider router={router} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
