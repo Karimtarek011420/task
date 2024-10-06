@@ -5,17 +5,18 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Compoments/Layout/Layout";
 import NotFound from "./Compoments/NotFound/NotFound";
+import Home from "./Compoments/Home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      {index:true, element: <h1>Home Page</h1> },
+      { path: "/", element: <Home /> },
       { path: "/jobs", element: <h1>Home Page</h1> },
       { path: "/about", element: <h1>About Page</h1> },
       { path: "/contact", element: <h1>Contact Page</h1> },
-      { path: "*", element:<NotFound/> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
